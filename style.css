@@ -86,7 +86,58 @@ body {
   flex-direction: column;
 }
 
-.cards {
+.ideas {
   grid-area: cards;
   background-color: #EAEAF4;
+}
+
+/* ------------------*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 300px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  border: 2px solid #1E1F3D;
+}
+
+.card--section {
+  display: flex;
+}
+
+.cards__middle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  margin: 30px;
+}
+
+.cards__middle--title {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.cards__bottom,
+.cards__top {
+  height: 40px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cards__top {
+  background-color: #1E1F3D;
+  color: white;
+}
+
+.cards__bottom {
+  background-color: #A9AAD2;
+}
+
+.cards__bottom--text {
+  color: white;
+  font-weight: 700;
 }
