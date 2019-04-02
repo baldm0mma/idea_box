@@ -1,40 +1,38 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300, 700" rel="stylesheet">
   </head>
   <body>
     <section class="sidebar">
-      <h1>IdeaBox Redux</h1>
-      <hr>
-      <form class="starred-ideas--form">
-        <label for="starred-ideas-filter--form">Filter Starred Ideas</label>
-        <button class="starred-ideas--button" type="button">Show Starred Mode</button>
+      <h1 class="sidebar__header">IdeaBox Redux</h1>
+      <form class="sidebar__form1 sidebar__child">
+        <label for="sidebar__form1--starred label">Filter Starred Ideas</label>
+        <button class="sidebar__form1--button sidebar--button" type="button">Show Starred Mode</button>
       </form>
-      <hr>
-      <h2>Filter by Quality</h2>
-      <ul class="qualities--list">
-        <li class="swill-quality--list">Swill</li>
-        <li class="plausible-quality--list">Plausible</li>
-        <li class="genius-quality--list">Genius</li>
+      <h2 class="label">Filter by Quality</h2>
+      <ul class="sidebar__list sidebar__child">
+        <li class="sidebar__list--swill item">Swill</li>
+        <li class="sidebar__list--plausible item">Plausible</li>
+        <li class="sidebar__list--genius item">Genius</li>
       </ul>
-      <form class="new-quality--form">
-        <label for="new-quality">New Quality</label>
-        <input type="text" name="new-quality" id="new-quality--input"/>
-        <button class="add-new-quality--button" type="button">Add New Quality</button>
+      <form class="sidebar__form2 sidebar__child">
+        <label class="sidebar__form2--quality label" for="new-quality">New Quality</label>
+        <input class="sidebar__form2--input" type="text" name="new-quality" id="new-quality--input"/>
+        <button class="sidebar__form2--button sidebar--button" type="button">Add New Quality</button>
       </form>
-      <hr>
     </section>
-    <section class="creation-station">
-      <form class="new-idea--form">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title"/>
-        <label for="body">Body</label>
-        <input type="text" name="body" id="body"/>
-        <button class="sav-new-idea--button" type="button">Save</button>
+    <section class="creator">
+      <form class="creator__form">
+        <label class="creator__form--title label" for="title">Title</label>
+        <input class="creator__form--title-input" type="text" name="title" id="title"/>
+        <label class="creator__form--body label" for="body">Body</label>
+        <input class="creator__form--body-input" type="text" name="body" id="body"/>
+        <button class="creator__form--button" type="button">Save</button>
       </form>
-      <input type="text" id="searchbar" placeholder="Search ideas">
+      <input class="creator__search" type="text" id="searchbar" placeholder="Search ideas">
     </section>  
-    <section class="card-station">
+    <section class="cards">
     </section>
   </body>
 </html>
