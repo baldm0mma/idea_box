@@ -84,6 +84,15 @@ body {
 .creator__form {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+}
+
+.creator__search {
+  margin: 10px;
+}
+
+.creator__form--button {
+  margin: 10px 0;
 }
 
 .ideas {
