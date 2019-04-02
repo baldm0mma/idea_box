@@ -1,0 +1,27 @@
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+}
+.sidebar {
+  height: 100%;
+  width: 20%;
+}
+.creation-station {
+  height: 50%;
+  width: 75%;
+}
+
+#title {
+  margin-right: 100%;
+}
+
+#body {
+  margin-right: 100%;
+}
+
+#searchbar {
+  margin-right: 29%;
+}
