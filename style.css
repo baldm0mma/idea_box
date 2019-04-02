@@ -98,6 +98,7 @@ body {
 .ideas {
   grid-area: cards;
   background-color: #EAEAF4;
+  display: flex;
 }
 
 /* ------------------*/
@@ -115,6 +116,7 @@ body {
 
 .card--section {
   display: flex;
+  box-sizing: border-box;
 }
 
 .cards__middle {
@@ -135,6 +137,7 @@ body {
   height: 40px;
   justify-content: space-between;
   width: 100%;
+  padding: 0 5px;
 }
 
 .cards__top {
