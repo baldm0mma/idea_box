@@ -53,9 +53,6 @@ function valueReset() {
 // }
 
 
-
-
-
 function insertIdea() {
 	// var cell = document.querySelector('.ideas');
 	var ideaCard = 
@@ -79,7 +76,7 @@ function insertIdea() {
 }
 
 function deleteCard(e) {
-  if (e.target.className === ".cards__top--right") {
+  if (e.target.className === "cards__top--right") {
     e.target.closest(".card").remove();
   }
 }
