@@ -99,6 +99,7 @@ body {
   grid-area: cards;
   background-color: #EAEAF4;
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* ------------------*/
