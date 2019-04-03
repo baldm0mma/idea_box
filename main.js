@@ -6,17 +6,19 @@ var creatorTitleInput = document.querySelector(".creator__form--title.input");
 var creatorBodyInput = document.querySelector(".creator__form--body.input");
 var creatorSaveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
+var ideasArea = document.querySelector(".ideas");
+var userIdeaPrompt = document.querySelector(".card__ideaprompt");
+var visibleIdeaCards = 0;
 var cell = document.querySelector('.ideas');
 // var ideaCard = document.querySelector(".card");
 var deleteButton = document.querySelector(".cards__top--right");
 
 // Event Listeners
 window.addEventListener("load", onLoad);
+
 // form1Button.addEventListener("click", functionName);
 // form2Input.addEventListener("keyup", functionName);
 // form2Button.addEventListener("click", functionName);
-// creatorTitleInput.addEventListener("keyup", functionName);
-// creatorBodyInput.addEventListener("keyup", functionName);
 
 creatorSaveButton.addEventListener('click', insertIdea);
 creatorTitleInput.addEventListener('keyup', saveButtonEnable);
@@ -31,6 +33,12 @@ cell.addEventListener('click', deleteCard);
 function onLoad() {
   creatorSaveButton.disabled = true;
 }
+
+function userIdeaPrompt() {
+  if (visibleIdeaCards >= 1) {
+  	userIdeaPrompt.classList.add("card__ideaprompt--hidden");
+  	}
+};
 
 function saveButtonEnable() {
 	if (creatorTitleInput.value === '' || creatorBodyInput.value === '') {
@@ -54,6 +62,10 @@ function valueReset() {
 
 
 function insertIdea() {
+	visibleIdeaCards++;
+	console.log("# of cards:" + visibleIdeaCards);
+	var cell = document.querySelector('.ideas');
+
 	// var cell = document.querySelector('.ideas');
 	var ideaCard = 
 		`<div class="card">
@@ -67,7 +79,7 @@ function insertIdea() {
         </section>
         <section class="cards__bottom card--section">
           <a <img class="cards__bottom--left" src="?">x</a>
-          <p class="cards__bottom--text">Quality: Swill</p>
+          <p class="cards__bottom--text">${quality}</p>
           <a <img class="cards__bottom--right" src="?">x</a>
         </section>
       </div>`;
@@ -80,3 +92,26 @@ function deleteCard(e) {
     e.target.closest(".card").remove();
   }
 }
+
+
+
+function createIdea() {
+  var title = creatorTitleInput.value;
+  var body = creatorBodyInput.value;
+  var id = Date.now();
+  var qualityLevels = ["swill", "plausible", "genius"];
+  var quality = qualityLevels[2];
+  var ideaInstance = new Idea(title, body, id, quality);
+  ideaArray.push(ideaInstance);
+  saveToStorage(ideaArray);
+  insertIdea();
+}
+
+
+
+
+
+
+
+
+
