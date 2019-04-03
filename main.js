@@ -92,3 +92,24 @@ function deleteCard(e) {
     e.target.closest(".card").remove();
   }
 }
+
+
+
+
+
+function createIdea() {
+  var title = creatorTitleInput.value;
+  var body = creatorBodyInput.value;
+  var id = Date.now();
+  var qualities = ["swill", "plausible", "genius"];
+  var quality =  qualities[2];
+}
+
+
+
+
+
+
+
+
+
