@@ -28,5 +28,3 @@ class Idea {
 		localStorage.setItems("ideas", ideaArray);
 	}
 }
-
-// :)

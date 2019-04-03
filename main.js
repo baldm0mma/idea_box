@@ -68,7 +68,7 @@ function insertIdea() {
 
 	// var cell = document.querySelector('.ideas');
 	var ideaCard = 
-		`<div class="card">
+		`<div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
           <a <img class="cards__top--left" src="?">x</a>
           <button class="cards__top--right" src="?" type="button">x</button>
@@ -99,11 +99,11 @@ function createIdea() {
   var title = creatorTitleInput.value;
   var body = creatorBodyInput.value;
   var id = Date.now();
-  var qualityLevels = ["swill", "plausible", "genius"];
-  var quality = qualityLevels[2];
+  var qualityLevels = ["swill", "plausible", "genius"]; 
+  var quality = qualityLevels[2]; 
   var ideaInstance = new Idea(title, body, id, quality);
   ideaArray.push(ideaInstance);
-  saveToStorage(ideaArray);
+  ideaInstance.saveToStorage(ideaArray);
   insertIdea();
 }
 
