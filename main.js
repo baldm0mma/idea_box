@@ -62,13 +62,11 @@ function valueReset() {
 
 
 function insertIdea() {
-<<<<<<< HEAD
 	visibleIdeaCards++;
 	console.log("# of cards:" + visibleIdeaCards);
 	var cell = document.querySelector('.ideas');
-=======
+
 	// var cell = document.querySelector('.ideas');
->>>>>>> 1aacfb316ca878e6a8b14cd8f2848746a5d86d70
 	var ideaCard = 
 		`<div class="card">
         <section class="cards__top card--section">
