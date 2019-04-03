@@ -9,6 +9,9 @@ var searchBox = document.querySelector(".creator__search");
 var ideasArea = document.querySelector(".ideas");
 var userIdeaPrompt = document.querySelector(".card__ideaprompt");
 var visibleIdeaCards = 0;
+var cell = document.querySelector('.ideas');
+// var ideaCard = document.querySelector(".card");
+var deleteButton = document.querySelector(".cards__top--right");
 
 // Event Listeners
 window.addEventListener("load", onLoad);
@@ -22,6 +25,10 @@ creatorTitleInput.addEventListener('keyup', saveButtonEnable);
 creatorBodyInput.addEventListener('keyup', saveButtonEnable);
 
 // searchBox.addEventListener("keyup", functionName);
+
+cell.addEventListener('click', deleteCard);
+
+// Functions
 
 function onLoad() {
   creatorSaveButton.disabled = true;
@@ -53,15 +60,20 @@ function valueReset() {
 // 		inputs[i].reset();
 // }
 
+
 function insertIdea() {
+<<<<<<< HEAD
 	visibleIdeaCards++;
 	console.log("# of cards:" + visibleIdeaCards);
 	var cell = document.querySelector('.ideas');
+=======
+	// var cell = document.querySelector('.ideas');
+>>>>>>> 1aacfb316ca878e6a8b14cd8f2848746a5d86d70
 	var ideaCard = 
 		`<div class="card">
         <section class="cards__top card--section">
           <a <img class="cards__top--left" src="?">x</a>
-          <a <img class="cards__top--right" src="?">x</a>
+          <button class="cards__top--right" src="?" type="button">x</button>
         </section>
         <section class="cards__middle card--section">
           <h3 class="cards__middle--title">${creatorTitleInput.value}</h3>
@@ -75,4 +87,10 @@ function insertIdea() {
       </div>`;
   cell.insertAdjacentHTML('afterbegin', ideaCard);
   valueReset();
+}
+
+function deleteCard(e) {
+  if (e.target.className === "cards__top--right") {
+    e.target.closest(".card").remove();
+  }
 }

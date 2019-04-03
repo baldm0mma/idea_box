@@ -99,7 +99,11 @@ body {
   grid-area: cards;
   background-color: #EAEAF4;
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
+=======
+  flex-wrap: wrap;
+>>>>>>> 1aacfb316ca878e6a8b14cd8f2848746a5d86d70
 }
 
 /* ------------------*/
