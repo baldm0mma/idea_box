@@ -2,8 +2,8 @@
 var form1Button = document.querySelector(".sidebar__form1--button");
 var form2Input = document.querySelector(".sidebar__form2--input");
 var form2Button = document.querySelector(".sidebar__form2--button");
-var creatorTitleInput = document.querySelector(".creator__form--title-input");
-var creatorBodyInput = document.querySelector(".creator__form--body-input");
+var creatorTitleInput = document.querySelector(".creator__form--title.input");
+var creatorBodyInput = document.querySelector(".creator__form--body.input");
 var creatorSaveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
 
@@ -16,22 +16,34 @@ window.addEventListener("load", onLoad);
 // creatorBodyInput.addEventListener("keyup", functionName);
 
 creatorSaveButton.addEventListener('click', insertIdea);
-creatorTitleInput.addEventListener("keyup", saveButtonEnable);
-creatorBodyInput.addEventListener("keyup", saveButtonEnable);
+creatorTitleInput.addEventListener('keyup', saveButtonEnable);
+creatorBodyInput.addEventListener('keyup', saveButtonEnable);
 
 // searchBox.addEventListener("keyup", functionName);
 
 function onLoad() {
-creatorSaveButton.disabled = true;
+  creatorSaveButton.disabled = true;
 }
 
 function saveButtonEnable() {
-	if (creatorTitleInput.value === "" || creatorBodyInput.value === "") {
-		creatorSaveButton.disabled = true;
+	if (creatorTitleInput.value === '' || creatorBodyInput.value === '') {
+    creatorSaveButton.disabled = true;
 	} else {
-		creatorSaveButton.disabled = false;
+    creatorSaveButton.disabled = false;
 	}
 }
+
+function valueReset() {
+  creatorTitleInput.value = '';
+  creatorBodyInput.value = '';
+  saveButtonEnable();
+}
+
+// function valueReset() {
+// 	var inputs = document.getElementsByClassName('input');
+// 	for (var i = 0; i < inputs.length; i++) {
+// 		inputs[i].reset();
+// }
 
 function insertIdea() {
 	var cell = document.querySelector('.ideas');
@@ -51,5 +63,6 @@ function insertIdea() {
           <a <img class="cards__bottom--right" src="?">x</a>
         </section>
       </div>`;
-	cell.insertAdjacentHTML('afterbegin', ideaCard);
+  cell.insertAdjacentHTML('afterbegin', ideaCard);
+  valueReset();
 }
