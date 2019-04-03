@@ -6,14 +6,16 @@ var creatorTitleInput = document.querySelector(".creator__form--title.input");
 var creatorBodyInput = document.querySelector(".creator__form--body.input");
 var creatorSaveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
+var ideasArea = document.querySelector(".ideas");
+var userIdeaPrompt = document.querySelector(".card__ideaprompt");
+var visibleIdeaCards = 0;
 
 // Event Listeners
 window.addEventListener("load", onLoad);
+
 // form1Button.addEventListener("click", functionName);
 // form2Input.addEventListener("keyup", functionName);
 // form2Button.addEventListener("click", functionName);
-// creatorTitleInput.addEventListener("keyup", functionName);
-// creatorBodyInput.addEventListener("keyup", functionName);
 
 creatorSaveButton.addEventListener('click', insertIdea);
 creatorTitleInput.addEventListener('keyup', saveButtonEnable);
@@ -24,6 +26,12 @@ creatorBodyInput.addEventListener('keyup', saveButtonEnable);
 function onLoad() {
   creatorSaveButton.disabled = true;
 }
+
+function userIdeaPrompt() {
+  if (visibleIdeaCards >= 1) {
+  	userIdeaPrompt.classList.add("card__ideaprompt--hidden");
+  	}
+};
 
 function saveButtonEnable() {
 	if (creatorTitleInput.value === '' || creatorBodyInput.value === '') {
@@ -46,6 +54,8 @@ function valueReset() {
 // }
 
 function insertIdea() {
+	visibleIdeaCards++;
+	console.log("# of cards:" + visibleIdeaCards);
 	var cell = document.querySelector('.ideas');
 	var ideaCard = 
 		`<div class="card">

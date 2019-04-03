@@ -99,6 +99,7 @@ body {
   grid-area: cards;
   background-color: #EAEAF4;
   display: flex;
+  justify-content: center;
 }
 
 /* ------------------*/
@@ -152,4 +153,15 @@ body {
 .cards__bottom--text {
   color: white;
   font-weight: 700;
+}
+
+/* ------------------ */
+
+.card__ideaprompt {
+  font-size: 48px;
+  color: #5356A4;
+}
+
+.card__ideaprompt--hidden {
+  visibility: hidden;
 }
