@@ -8,6 +8,7 @@ var creatorSaveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
 
 // Event Listeners
+window.addEventListener("load", onLoad);
 // form1Button.addEventListener("click", functionName);
 // form2Input.addEventListener("keyup", functionName);
 // form2Button.addEventListener("click", functionName);
@@ -16,20 +17,19 @@ var searchBox = document.querySelector(".creator__search");
 
 creatorSaveButton.addEventListener('click', insertIdea);
 creatorTitleInput.addEventListener("keyup", saveButtonEnable);
-window.addEventListener("load", onLoad);
+creatorBodyInput.addEventListener("keyup", saveButtonEnable);
+
 // searchBox.addEventListener("keyup", functionName);
-console.log('test');
+
 function onLoad() {
-	console.log('test2');
-	creatorSaveButton.disabled = true;
+creatorSaveButton.disabled = true;
 }
 
 function saveButtonEnable() {
-	console.log("test3");
-	if (creatorTitleInput.value != "") {
-		creatorSaveButton.disabled = false;
-	} else {
+	if (creatorTitleInput.value === "" || creatorBodyInput.value === "") {
 		creatorSaveButton.disabled = true;
+	} else {
+		creatorSaveButton.disabled = false;
 	}
 }
 
