@@ -99,8 +99,8 @@ function createIdea() {
   var title = creatorTitleInput.value;
   var body = creatorBodyInput.value;
   var id = Date.now();
-  var qualityLevels = ["swill", "plausible", "genius"];  //halp...
-  var quality = qualityLevels[2]; //halp...
+  var qualityLevels = ["swill", "plausible", "genius"]; 
+  var quality = qualityLevels[2]; 
   var ideaInstance = new Idea(title, body, id, quality);
   ideaArray.push(ideaInstance);
   ideaInstance.saveToStorage(ideaArray);
