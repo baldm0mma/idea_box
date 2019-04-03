@@ -79,7 +79,7 @@ function insertIdea() {
         </section>
         <section class="cards__bottom card--section">
           <a <img class="cards__bottom--left" src="?">x</a>
-          <p class="cards__bottom--text">Quality: Swill</p>
+          <p class="cards__bottom--text">${quality}</p>
           <a <img class="cards__bottom--right" src="?">x</a>
         </section>
       </div>`;
@@ -95,14 +95,16 @@ function deleteCard(e) {
 
 
 
-
-
 function createIdea() {
   var title = creatorTitleInput.value;
   var body = creatorBodyInput.value;
   var id = Date.now();
-  var qualities = ["swill", "plausible", "genius"];
-  var quality =  qualities[2];
+  var qualityLevels = ["swill", "plausible", "genius"];
+  var quality = qualityLevels[2];
+  var ideaInstance = new Idea(title, body, id, quality);
+  ideaArray.push(ideaInstance);
+  saveToStorage(ideaArray);
+  insertIdea();
 }
 
 

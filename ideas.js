@@ -1,4 +1,4 @@
-var ideas = JSON.parse(localStorage.getItem("ideas", ideas)) || [];
+var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
 
 
 class Idea {
@@ -11,19 +11,20 @@ class Idea {
 	}
 
 	saveToStorage() {
-		localStorage.setItems("ideas", ideas);
+		JSON.stringify(ideaArray);
+		localStorage.setItems("ideas", ideaArray);
 	}
 
 	deleteFromStorage() {
-		//localStorage is actually being overwritten, not really 'deleted'
+		//localStorage is actually being overwritten, not really 'deleted'?
 	}
 
 	updateIdea() {
-		localStorage.setItems("ideas", ideas);
+		localStorage.setItems("ideas", ideaArray);
 		//cannot update with an empty title or body
 	}
 
 	updateQuality() {
-		localStorage.setItems("ideas", ideas);
+		localStorage.setItems("ideas", ideaArray);
 	}
 }
