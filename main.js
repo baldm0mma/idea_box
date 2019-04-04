@@ -32,6 +32,8 @@ cell.addEventListener('click', deleteCard);
 
 function onLoad() {
   creatorSaveButton.disabled = true;
+  var y = JSON.parse(localStorage.getItem('ideas'));
+  console.log(y);
 }
 
 function userIdeaPrompt() {
@@ -103,8 +105,8 @@ function createIdea() {
   var qualityLevels = ["swill", "plausible", "genius"]; 
   var quality = qualityLevels[0]; 
   var ideaInstance = new Idea(title, body, id, quality);
-    console.log(ideaInstance);
-  ideaArray.push(ideaInstance);
+  var x = JSON.stringify(ideaInstance);
+  ideaArray.push(x);
   ideaInstance.saveToStorage(ideaArray);
   insertIdea(ideaInstance);
 }

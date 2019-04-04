@@ -1,5 +1,5 @@
-var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
-
+var ideaArray = [];
+// var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
 
 class Idea {
 	constructor(title, body, id, quality) {
@@ -11,8 +11,9 @@ class Idea {
 	}
 
 	saveToStorage() {
-		JSON.stringify(ideaArray);
-		localStorage.setItem("ideas", ideaArray);
+		// JSON.stringify(ideaInstance);
+		localStorage.setItem('ideas', ideaArray);
+		// JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
 	deleteFromStorage() {
@@ -20,11 +21,11 @@ class Idea {
 	}
 
 	updateIdea() {
-		localStorage.setItem("ideas", ideaArray);
+		localStorage.setItem('ideas', ideaArray);
 		//cannot update with an empty title or body
 	}
 
 	updateQuality() {
-		localStorage.setItem("ideas", ideaArray);
+		localStorage.setItem('ideas', ideaArray);
 	}
 }
