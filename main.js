@@ -32,7 +32,7 @@ cell.addEventListener('click', deleteCard);
 
 function onLoad() {
   creatorSaveButton.disabled = true;
-  var y = JSON.parse(localStorage.getItem('ideas'));
+  var y = JSON.parse(localStorage.getItem("ideas"));
   console.log(y);
 }
 

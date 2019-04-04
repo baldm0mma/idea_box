@@ -12,7 +12,7 @@ class Idea {
 
 	saveToStorage() {
 		// JSON.stringify(ideaInstance);
-		localStorage.setItem('ideas', ideaArray);
+		localStorage.setItem("ideas", ideaArray);
 		// JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
@@ -21,11 +21,11 @@ class Idea {
 	}
 
 	updateIdea() {
-		localStorage.setItem('ideas', ideaArray);
+		localStorage.setItem("ideas", ideaArray);
 		//cannot update with an empty title or body
 	}
 
 	updateQuality() {
-		localStorage.setItem('ideas', ideaArray);
+		localStorage.setItem("ideas", ideaArray);
 	}
 }
