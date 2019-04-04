@@ -1,5 +1,5 @@
-var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
-
+var ideaArray = [];
+// var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
 
 class Idea {
 	constructor(title, body, id, quality) {
@@ -11,8 +11,9 @@ class Idea {
 	}
 
 	saveToStorage() {
-		JSON.stringify(ideaArray);
+		// JSON.stringify(ideaInstance);
 		localStorage.setItem("ideas", ideaArray);
+		// JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
 	deleteFromStorage() {
