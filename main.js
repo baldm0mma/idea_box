@@ -13,6 +13,11 @@ var cell = document.querySelector('.ideas');
 // var ideaCard = document.querySelector(".card");
 var deleteButton = document.querySelector(".cards__top--right");
 
+// var ideaArray = [];
+var ideaArray = JSON.parse(localStorage.getItem("ideas")) || [];
+console.log(ideaArray);
+
+
 // Event Listeners
 window.addEventListener("load", onLoad);
 
@@ -32,8 +37,8 @@ cell.addEventListener('click', deleteCard);
 
 function onLoad() {
   creatorSaveButton.disabled = true;
-  var y = JSON.parse(localStorage.getItem("ideas"));
-  console.log(y);
+  // var y = (localStorage.getItem("ideas"));
+  // console.log(y);
 }
 
 function userIdeaPrompt() {
@@ -86,6 +91,7 @@ function insertIdea(ideaInstance) {
           <a <img class="cards__bottom--right" src="?">x</a>
         </section>
       </div>`;
+      console.log("ideaInstance", ideaInstance.id);
   cell.insertAdjacentHTML('afterbegin', ideaCard);
   valueReset();
 }
@@ -96,7 +102,9 @@ function deleteCard(e) {
   }
 }
 
+function deleteData() {
 
+}
 
 function createIdea() {
   var title = creatorTitleInput.value;
@@ -105,9 +113,10 @@ function createIdea() {
   var qualityLevels = ["swill", "plausible", "genius"]; 
   var quality = qualityLevels[0]; 
   var ideaInstance = new Idea(title, body, id, quality);
-  var x = JSON.stringify(ideaInstance);
-  ideaArray.push(x);
+  ideaArray.push(ideaInstance);
+  console.log(ideaInstance);
   ideaInstance.saveToStorage(ideaArray);
+  console.log(ideaArray);
   insertIdea(ideaInstance);
 }
 

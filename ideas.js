@@ -1,5 +1,4 @@
-var ideaArray = [];
-// var ideaArray = JSON.parse(localStorage.getItem("ideas", ideaArray)) || [];
+
 
 class Idea {
 	constructor(title, body, id, quality) {
@@ -8,11 +7,12 @@ class Idea {
 		this.id = id;
 		this.star = false;
 		this.quality = quality;
+		this.qualityLevels = ["swill", "plausible", "genius"]; 
 	}
 
 	saveToStorage() {
-		// JSON.stringify(ideaInstance);
-		localStorage.setItem("ideas", ideaArray);
+		var newString = JSON.stringify(ideaArray);
+		localStorage.setItem("ideas", newString);
 		// JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
