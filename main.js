@@ -134,11 +134,12 @@ function deleteCard(e) {
 
 function findAndRemoveCardData(cardId) {
   var indexInArray = ideaArray.findIndex(function(item) {
-  return item.id === cardId;
+  console.log(item.id);
+  return item.id == cardId;
   });
-  console.log(indexInArray);
+  // console.log(indexInArray);
   ideaArray.splice(indexInArray, 1);
-  console.log(ideaArray);
+  // console.log(ideaArray);
   var newString = JSON.stringify(ideaArray);
 	localStorage.setItem("ideas", newString);
   JSON.parse(localStorage.getItem("ideas", ideaArray));
