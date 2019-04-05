@@ -15,7 +15,9 @@ var deleteButton = document.querySelector(".cards__top--right");
 
 // var ideaArray = [];
 var ideaArray = JSON.parse(localStorage.getItem("ideas")) || [];
-console.log(ideaArray);
+
+
+// console.log(ideaArray);
 
 
 // Event Listeners
@@ -39,6 +41,32 @@ function onLoad() {
   creatorSaveButton.disabled = true;
   // var y = (localStorage.getItem("ideas"));
   // console.log(y);
+  remakeArrayWithMethods();
+}
+
+function remakeArrayWithMethods() {
+  var array = ideaArray;
+  // console.log("array");
+  // console.log(array);
+  var newArray = array.map(function(item) {
+      item = new Idea(item.title, item.body, item.id, item.quality);
+      // console.log("item");
+      // console.log(item);
+      return item;
+  })
+  ideaArray = newArray;
+  // console.log("ideaArray");
+  // console.log(ideaArray);
+  addCardsBackAfterReload(ideaArray);
+}
+
+
+function addCardsBackAfterReload(ideaArray) {
+  // console.log("ideaArray");
+  // console.log(ideaArray);
+  ideaArray.forEach(function(item) {
+    insertIdea(item);
+  });
 }
 
 function userIdeaPrompt() {
@@ -62,19 +90,17 @@ function valueReset() {
 }
 
 // function valueReset() {
-// 	var inputs = document.getElementsByClassName('input');
+// 	var inputs = document.getitementsByClassName('input');
 // 	for (var i = 0; i < inputs.length; i++) {
 // 		inputs[i].reset();
 // }
 
 
 function insertIdea(ideaInstance) {
-	visibleIdeaCards++;
+	// visibleIdeaCards++;
   // console.log(ideaInstance);
-	console.log("# of cards:" + visibleIdeaCards);
+	// console.log("# of cards:" + visibleIdeaCards);
 	var cell = document.querySelector('.ideas');
-
-	// var cell = document.querySelector('.ideas');
 	var ideaCard = `
 		<div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
@@ -91,19 +117,31 @@ function insertIdea(ideaInstance) {
           <a <img class="cards__bottom--right" src="?">x</a>
         </section>
       </div>`;
-      console.log("ideaInstance", ideaInstance.id);
+      // console.log("ideaInstance", ideaInstance.id);
   cell.insertAdjacentHTML('afterbegin', ideaCard);
   valueReset();
 }
 
 function deleteCard(e) {
   if (e.target.className === "cards__top--right") {
-    e.target.closest(".card").remove();
+    var card = e.target.closest('.card');
+    card.remove();
+    cardId = card.dataset.id;
+    console.log(cardId);
+    findAndRemoveCardData(cardId);
   }
 }
 
-function deleteData() {
-
+function findAndRemoveCardData(cardId) {
+  var indexInArray = ideaArray.findIndex(function(item) {
+  return item.id === cardId;
+  });
+  console.log(indexInArray);
+  ideaArray.splice(indexInArray, 1);
+  console.log(ideaArray);
+  var newString = JSON.stringify(ideaArray);
+	localStorage.setItem("ideas", newString);
+  JSON.parse(localStorage.getItem("ideas", ideaArray));
 }
 
 function createIdea() {
@@ -114,13 +152,11 @@ function createIdea() {
   var quality = qualityLevels[0]; 
   var ideaInstance = new Idea(title, body, id, quality);
   ideaArray.push(ideaInstance);
-  console.log(ideaInstance);
+  // console.log(ideaInstance);
   ideaInstance.saveToStorage(ideaArray);
-  console.log(ideaArray);
+  // console.log(ideaArray);
   insertIdea(ideaInstance);
 }
-
-
 
 
 

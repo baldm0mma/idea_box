@@ -13,7 +13,7 @@ class Idea {
 	saveToStorage() {
 		var newString = JSON.stringify(ideaArray);
 		localStorage.setItem("ideas", newString);
-		// JSON.parse(localStorage.getItem("ideas", ideaArray));
+		JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
 	deleteFromStorage() {
