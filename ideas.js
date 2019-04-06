@@ -31,5 +31,5 @@ class Idea {
 
 	updateStar() {
 		this.star = true;
-	}
+ 	}
 }
