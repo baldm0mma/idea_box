@@ -50,3 +50,12 @@ body {
   grid-area: cards;
 }
 
+.card__ideaprompt {
+  font-size: 48px;
+  color: #5356A4;
+}
+
+.card__ideaprompt.hidden {
+  display: none;
+}
+
