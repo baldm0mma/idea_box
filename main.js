@@ -16,6 +16,8 @@ var deleteButton = document.querySelector(".cards__top--right");
 // var ideaArray = [];
 var ideaArray = JSON.parse(localStorage.getItem("ideas")) || [];
 
+// var methodPlaceholder;
+
 
 // console.log(ideaArray);
 
@@ -42,6 +44,7 @@ function onLoad() {
   // var y = (localStorage.getItem("ideas"));
   // console.log(y);
   remakeArrayWithMethods();
+  // createIdeaPrompt();
 }
 
 function remakeArrayWithMethods() {
@@ -127,7 +130,7 @@ function deleteCard(e) {
     var card = e.target.closest('.card');
     card.remove();
     cardId = card.dataset.id;
-    console.log(cardId);
+    console.log('cardID:' + cardId);
     findAndRemoveCardData(cardId);
   }
 }
@@ -150,6 +153,7 @@ function createIdea() {
   var body = creatorBodyInput.value;
   var id = Date.now();
   var star = false;
+  var qualityLevels = ["swill", "plausible", "genius"]; 
   var quality = qualityLevels[0]; 
   var ideaInstance = new Idea(title, body, id, quality, star);
   ideaArray.push(ideaInstance);
@@ -159,11 +163,18 @@ function createIdea() {
   insertIdea(ideaInstance);
 }
 
-
-
-
-
-
-
-
-
+// function createIdeaPrompt() {
+//   if (ideaArray.length > 0) {
+//     return;
+//   } else {
+//     var title = 'Enter idea name'
+//     var body = 'Enter your idea content here'
+//     var id = 1;
+//     var methodPlaceholder = new Idea(title, body, id);
+//     ideaArray.push(methodPlaceholder);
+//     // console.log(ideaInstance);
+//     methodPlaceholder.saveToStorage(ideaArray);
+//     // console.log(ideaArray);
+//     insertIdea(methodPlaceholder);
+//   }
+// }

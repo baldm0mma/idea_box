@@ -17,7 +17,7 @@ class Idea {
 	}
 
 	deleteFromStorage() {
-		//localStorage is actually being overwritten, not really 'deleted'?
+		// get the id, splce instanceof, delete.
 	}
 
 	updateIdea() {
@@ -31,5 +31,5 @@ class Idea {
 
 	updateStar() {
 		this.star = true;
- 	}
+	}
 }
