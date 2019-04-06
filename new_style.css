@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   background-color: #1F1F3D;
   color: #fff;
+  border-left: 10px solid green;
 }
 
 .sidebar__child {
