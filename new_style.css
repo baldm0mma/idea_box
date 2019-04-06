@@ -1,0 +1,49 @@
+* {
+  border: 1px solid black;
+}
+
+
+body {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+    "sidebar creator"
+    "sidebar cards";
+}
+/*  grid-template-rows: 25% 100px auto;*/
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__child {
+  display: flex;
+  flex-direction: column;
+}
+
+.creator {
+  grid-area: creator;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.creator__form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+}
+
+.ideas {
+  grid-area: cards;
+}
+
+/*div {
+
+  grid-template-columns: 25% 75%;
+}*/

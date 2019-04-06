@@ -163,6 +163,6 @@ body {
   color: #5356A4;
 }
 
-.card__ideaprompt--hidden {
-  visibility: hidden;
+.card__ideaprompt.hidden {
+  display: none;
 }
