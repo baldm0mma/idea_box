@@ -1,7 +1,9 @@
 * {
   border: 1px solid black;
+  font-family: Open Sans, sans serif; 
+  margin: 0;
+  padding: 0;
 }
-
 
 body {
   display: grid;
@@ -11,13 +13,14 @@ body {
     "sidebar creator"
     "sidebar cards";
 }
-/*  grid-template-rows: 25% 100px auto;*/
-}
+
 
 .sidebar {
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
+  background-color: #1F1F3D;
+  color: #fff;
 }
 
 .sidebar__child {
@@ -26,14 +29,17 @@ body {
 }
 
 .creator {
-  grid-area: creator;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-content: center;
+  grid-area: creator;
+  background-color: #A9AAD2;
 }
 
 .creator__form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   width: 50%;
@@ -43,7 +49,3 @@ body {
   grid-area: cards;
 }
 
-/*div {
-
-  grid-template-columns: 25% 75%;
-}*/
