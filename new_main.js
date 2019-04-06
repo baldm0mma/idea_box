@@ -11,7 +11,7 @@ var cardTable = document.querySelector(".ideas");
 var editTitle = document.querySelector(".cards__middle--title");
 var editBody = document.querySelector(".cards__middle--text");
 var prompt = document.querySelector(".card__ideaprompt");
-var ideas;
+var ideaCollection;
 
 // Add Event Listeners
 
@@ -21,23 +21,22 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 
-editTitle.addEventListener('click', );
-editBody.addEventListener('click', );
+// editTitle.addEventListener('click', );
+// editBody.addEventListener('click', );
 
 // Add Functions 
 
 function loadPage() {
   saveButton.disabled = true;
   restoreIdeas();
-/* need a placeholder to appear in empty card table | 
-idea should be persisted on page reload: 
-    (fetch data from localStorage, 
-    parse data from localStorage, repopulate objects with methods)
+/*  idea should be persisted on page reload: 
+      (fetch data from localStorage, 
+      parse data from localStorage, repopulate objects with methods)
 */
 }
 
 function restoreIdeas() {
-  ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+  ideaCollection = JSON.parse(localStorage.getItem("ideas")) || [];
 }
 
 function enableSaveButton() {
@@ -50,17 +49,49 @@ function enableSaveButton() {
 
 function saveButtonActions() {
   hidePrompt();
-  /* needs to populate the DOM | 
-  needs to stringify and then save to storage |
-  needs to make the placeholder go away | 
-  clear text fields | 
-  page should not reload | 
-
-  */
+  instantiateIdea();
+  clearCreatorInputs();
 }
 
 function hidePrompt() {
   prompt.classList.add("hidden");
+}
+
+function displayIdeas(ideaInstance) {
+  var ideaCard = `
+    <div class="card" data-id="${ideaInstance.id}">
+        <section class="cards__top card--section">
+          <a <img class="cards__top--left" src="?">x</a>
+          <button class="cards__top--right" src="?" type="button">x</button>
+        </section>
+        <section class="cards__middle card--section">
+          <h3 class="cards__middle--title">${ideaInstance.title}</h3>
+          <p class="cards__middle--text">${ideaInstance.body}</p>
+        </section>
+        <section class="cards__bottom card--section">
+          <a <img class="cards__bottom--left" src="?">x</a>
+          <p class="cards__bottom--text">Quality: ${ideaInstance.quality}</p>
+          <a <img class="cards__bottom--right" src="?">x</a>
+        </section>
+      </div>`;
+  cardTable.insertAdjacentHTML('afterbegin', ideaCard)
+}
+
+function instantiateIdea() {
+  var id = Date.now();
+  var title = titleInput.value;
+  var body = bodyInput.value;
+  var ideaInstance = new Idea(id, title, body);
+  ideaCollection.push(ideaInstance);
+  ideaInstance.saveToStorage(ideaCollection);
+  displayIdeas(ideaInstance);
+
+}
+
+function clearCreatorInputs() {
+  bodyInput.value = "";
+  titleInput.value = "";
+  saveButton.disabled = true;
 }
 
 
