@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="new_style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100, 200, 300, 400, 500, 600, 700, 800" rel="stylesheet">
   </head>
   <body>
@@ -11,11 +11,11 @@
         <button class="sidebar__form1--button sidebar--button" type="button">Show Starred Ideas</button>
       </form>
       <h2 class="label">Filter by Quality</h2>
-      <ul class="sidebar__list sidebar__child">
-        <li class="sidebar__list--swill item">Swill</li>
-        <li class="sidebar__list--plausible item">Plausible</li>
-        <li class="sidebar__list--genius item">Genius</li>
-      </ul>
+      <article class="sidebar__list sidebar__child">
+        <p class="sidebar__list--swill item">Swill</p>
+        <p class="sidebar__list--plausible item">Plausible</p>
+        <p class="sidebar__list--genius item">Genius</p>
+      </article>
       <form class="sidebar__form2 sidebar__child">
         <label class="sidebar__form2--quality label" for="new-quality">New Quality</label>
         <input class="sidebar__form2--input" type="text" name="new-quality" id="new-quality--input"/>
@@ -33,9 +33,10 @@
       <input class="creator__search" type="text" id="searchbar" placeholder="Search ideas">
     </section>  
     <section class="ideas">
-      <!-- <p class="card__ideaprompt">Create an Idea!</p> -->
+      <p class="card__ideaprompt">Create an Idea!</p>
+      <!-- if the length of the array is greater than 0, remove this text -->
     </section>
   </body>
-  <script src="./ideas.js"></script>
-  <script src="./main.js"></script>
+  <script src="./new_ideas.js"></script>
+  <script src="./new_main.js"></script>
 </html>
