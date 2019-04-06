@@ -8,7 +8,7 @@ var creatorSaveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
 var ideasArea = document.querySelector(".ideas");
 var userIdeaPrompt = document.querySelector(".card__ideaprompt");
-var visibleIdeaCards = 0;
+// var visibleIdeaCards = 0;
 var cell = document.querySelector('.ideas');
 // var ideaCard = document.querySelector(".card");
 var deleteButton = document.querySelector(".cards__top--right");
@@ -49,7 +49,7 @@ function remakeArrayWithMethods() {
   // console.log("array");
   // console.log(array);
   var newArray = array.map(function(item) {
-      item = new Idea(item.title, item.body, item.id, item.quality);
+      item = new Idea(item.title, item.body, item.id, item.quality, item.star);
       // console.log("item");
       // console.log(item);
       return item;
@@ -69,11 +69,11 @@ function addCardsBackAfterReload(ideaArray) {
   });
 }
 
-function userIdeaPrompt() {
-  if (visibleIdeaCards >= 1) {
-  	userIdeaPrompt.classList.add("card__ideaprompt--hidden");
-  	}
-};
+// function userIdeaPrompt() {
+//   if (visibleIdeaCards >= 1) {
+//   	userIdeaPrompt.classList.add("card__ideaprompt--hidden");
+//   	}
+// };
 
 function saveButtonEnable() {
 	if (creatorTitleInput.value === '' || creatorBodyInput.value === '') {
@@ -142,16 +142,16 @@ function findAndRemoveCardData(cardId) {
   // console.log(ideaArray);
   var newString = JSON.stringify(ideaArray);
 	localStorage.setItem("ideas", newString);
-  JSON.parse(localStorage.getItem("ideas", ideaArray));
+  // JSON.parse(localStorage.getItem("ideas", ideaArray));
 }
 
 function createIdea() {
   var title = creatorTitleInput.value;
   var body = creatorBodyInput.value;
   var id = Date.now();
-  var qualityLevels = ["swill", "plausible", "genius"]; 
+  var star = false;
   var quality = qualityLevels[0]; 
-  var ideaInstance = new Idea(title, body, id, quality);
+  var ideaInstance = new Idea(title, body, id, quality, star);
   ideaArray.push(ideaInstance);
   // console.log(ideaInstance);
   ideaInstance.saveToStorage(ideaArray);

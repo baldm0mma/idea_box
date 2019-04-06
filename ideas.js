@@ -1,7 +1,7 @@
 
 
 class Idea {
-	constructor(title, body, id, quality) {
+	constructor(title, body, id, quality, star) {
 		this.title = title;
 		this.body = body;
 		this.id = id;
@@ -13,7 +13,7 @@ class Idea {
 	saveToStorage() {
 		var newString = JSON.stringify(ideaArray);
 		localStorage.setItem("ideas", newString);
-		JSON.parse(localStorage.getItem("ideas", ideaArray));
+		// JSON.parse(localStorage.getItem("ideas", ideaArray));
 	}
 
 	deleteFromStorage() {
@@ -27,5 +27,9 @@ class Idea {
 
 	updateQuality() {
 		localStorage.setItem("ideas", ideaArray);
+	}
+
+	updateStar() {
+		this.star = true;
 	}
 }
