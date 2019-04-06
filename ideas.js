@@ -1,7 +1,7 @@
 
 
 class Idea {
-	constructor(title, body, id, quality) {
+	constructor(title, body, id, quality, star) {
 		this.title = title;
 		this.body = body;
 		this.id = id;
@@ -17,7 +17,7 @@ class Idea {
 	}
 
 	deleteFromStorage() {
-		//localStorage is actually being overwritten, not really 'deleted'?
+		// get the id, splce instanceof, delete.
 	}
 
 	updateIdea() {
@@ -27,5 +27,9 @@ class Idea {
 
 	updateQuality() {
 		localStorage.setItem("ideas", ideaArray);
+	}
+
+	updateStar() {
+		this.star = true;
 	}
 }
