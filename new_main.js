@@ -59,17 +59,17 @@ function displayIdeas(ideaInstance) {
   var ideaCard = `
     <div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
-          <a <img class="cards__top--left" src="?">x</a>
-          <button class="cards__top--right" src="?" type="button">x</button>
+          <img class="cards__top--left" src="images/star.svg">
+          <img class="cards__top--right" src="images/delete.svg">
         </section>
         <section class="cards__middle card--section">
           <h3 class="cards__middle--title">${ideaInstance.title}</h3>
           <p class="cards__middle--text">${ideaInstance.body}</p>
         </section>
         <section class="cards__bottom card--section">
-          <a <img class="cards__bottom--left" src="?">x</a>
+          <img class="cards__bottom--left" src="images/upvote.svg">
           <p class="cards__bottom--text">Quality: ${ideaInstance.quality}</p>
-          <a <img class="cards__bottom--right" src="?">x</a>
+          <img class="cards__bottom--right" src="images/downvote.svg">
         </section>
       </div>`;
   cardTable.insertAdjacentHTML('afterbegin', ideaCard)
