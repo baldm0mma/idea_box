@@ -29,10 +29,7 @@ saveButton.addEventListener('click', saveButtonActions);
 function loadPage() {
   saveButton.disabled = true;
   restoreIdeas();
-/*  idea should be persisted on page reload: 
-      (fetch data from localStorage, 
-      parse data from localStorage, repopulate objects with methods)
-*/
+  restoreMethods();
 }
 
 function restoreIdeas() {
@@ -48,13 +45,14 @@ function enableSaveButton() {
 }
 
 function saveButtonActions() {
-  hidePrompt();
   instantiateIdea();
   clearCreatorInputs();
 }
 
 function hidePrompt() {
-  prompt.classList.add("hidden");
+  if (ideaCollection.length > 0) {
+    prompt.classList.add("hidden");
+  }
 }
 
 function displayIdeas(ideaInstance) {
@@ -75,13 +73,17 @@ function displayIdeas(ideaInstance) {
         </section>
       </div>`;
   cardTable.insertAdjacentHTML('afterbegin', ideaCard)
+  hidePrompt();
 }
 
 function instantiateIdea() {
   var id = Date.now();
   var title = titleInput.value;
   var body = bodyInput.value;
-  var ideaInstance = new Idea(id, title, body);
+  var star = false;
+  var qualityList = ['Swill', 'Plausible', 'Genius'];
+  var quality = qualityList[0];
+  var ideaInstance = new Idea(id, title, body, star, quality);
   ideaCollection.push(ideaInstance);
   ideaInstance.saveToStorage(ideaCollection);
   displayIdeas(ideaInstance);
@@ -94,5 +96,19 @@ function clearCreatorInputs() {
   saveButton.disabled = true;
 }
 
+function restoreMethods() {
+  var oldCollection = ideaCollection;
+  var newInstances = oldCollection.map(function(datum) {
+    datum = new Idea (datum.id, datum.title, datum.body, datum.star, datum.quality);
+    return datum;
+  });
+  ideaCollection = newInstances;
+  restoreCards(ideaCollection);
+}
 
+function restoreCards(ideaCollection) {
+  ideaCollection.forEach(function(datum) {
+    displayIdeas(datum);
+  });
+}
 
