@@ -1,5 +1,5 @@
 * {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   font-family: Open Sans, sans serif; 
   margin: 0;
   padding: 0;
@@ -14,19 +14,32 @@ body {
     "sidebar cards";
 }
 
-
 .sidebar {
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
   background-color: #1F1F3D;
   color: #fff;
-  border-left: 10px solid green;
+}
+
+.sidebar__border {
+  border-left: 10px solid #1F1F3D;
+  padding-left: 10px;
 }
 
 .sidebar__child {
   display: flex;
   flex-direction: column;
+}
+
+.item {
+  border-left: 10px solid #1F1F3D;
+  padding-left: 10px;
+}
+
+.item:hover {
+  border-left: 10px solid #F58E72;
+  background-color: #D14119;
 }
 
 .creator {
@@ -46,9 +59,103 @@ body {
   width: 50%;
 }
 
+.creator__form.label,
+.sidebar__form2--input {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+creator label,
+button,
+input {
+  border: 1px solid #353567;
+  border-radius: 2px
+}
+
+button,
+.creator__form--title--input,
+.creator__form--button,
+.sidebar__form2--input {
+  height: 38px;
+}
+
+.creator__form--body--input {
+  height: 74px;
+}
+
+.creator__search {
+  width: 50%;
+  height: 38px;
+}
+
 .ideas {
   grid-area: cards;
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  /*grid-column-gap: 5px;
+  grid-row-gap: 5px;*/
 }
+
+/* ------------------*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 275px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  border: 2px solid #1E1F3D;
+}
+
+.card--section {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.cards__middle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  margin: 10px;
+  width: 90%;
+}
+
+.cards__middle--title {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.cards__bottom,
+.cards__top {
+  height: 40px;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5px;
+}
+
+img {
+  width: 15%;
+}
+
+.cards__top {
+  background-color: #1E1F3D;
+  color: white;
+}
+
+.cards__bottom {
+  background-color: #A9AAD2;
+}
+
+.cards__bottom--text {
+  color: white;
+  font-weight: 700;
+  line-height: 38px;
+}
+
+/* ------------------*/
 
 .card__ideaprompt {
   font-size: 48px;
@@ -58,4 +165,3 @@ body {
 .card__ideaprompt.hidden {
   display: none;
 }
-
