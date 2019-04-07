@@ -13,8 +13,8 @@ class Idea {
     localStorage.setItem("ideas", stringifiedIdeas);
   }
 
-  deleteFromStorage() {
-    ideaCollection.splice(placeholderVariable, 1);
+  deleteFromStorage(collectionIndex) {
+    ideaCollection.splice(collectionIndex, 1);
     this.saveToStorage(ideaCollection);
   }
 
@@ -23,7 +23,7 @@ class Idea {
   }
 
   updateQuality() {
-    
+
   }
 
 }
