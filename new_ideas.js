@@ -16,7 +16,6 @@ class Idea {
   deleteFromStorage() {
     ideaCollection.splice(placeholderVariable, 1);
     this.saveToStorage(ideaCollection);
-
   }
 
   updateIdea() {
@@ -24,7 +23,7 @@ class Idea {
   }
 
   updateQuality() {
-
+    
   }
 
 }

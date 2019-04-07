@@ -8,7 +8,7 @@
 body {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 400px 50%;
   grid-template-areas: 
     "sidebar creator"
     "sidebar cards";
@@ -81,6 +81,7 @@ button,
 
 .creator__form--body--input {
   height: 74px;
+  text-overflow: wrap;
 }
 
 .creator__search {
@@ -118,6 +119,7 @@ button,
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: auto;
   justify-content: flex-start;
   margin: 10px;
   width: 90%;
