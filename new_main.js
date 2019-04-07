@@ -121,29 +121,27 @@ function restoreCards(ideaCollection) {
 
 function deleteDisplayedCards(e) {
   if (e.target.className === "cards__top--right") {
-    var card = e.target.closest(".card");
-    card.remove();
-  }
-}
-
-function deleteDisplayedCards(e) {
-  if (e.target.className === "cards__top--right") {
    var card = e.target.closest('.card');
+   console.log("card: " + card);
    card.remove();
-   deleteFromCollection(card);
+   findCardId(card);
   }
 }
 
 function findCardId(card) {
   var cardId = card.dataset.id;
+  console.log("cardId: " + cardId);
+  findAndRemoveCardData(cardId);
 }
 
 function findAndRemoveCardData(cardId) {
   var collectionIndex = ideaCollection.findIndex(function(item) {
+    // console.log("collection index: " + collectionIndex);
     return item.id == cardId;
   });
   var x = findAndRemoveCardData(cardId);
   x.deleteFromStorage(collectionIndex);
+  console.log("x: " + x);
 }
 
 
