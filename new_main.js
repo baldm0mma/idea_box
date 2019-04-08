@@ -139,9 +139,14 @@ function findAndRemoveCardData(cardId) {
     // console.log("collection index: " + collectionIndex);
     return item.id == cardId;
   });
-  var x = findAndRemoveCardData(cardId);
-  x.deleteFromStorage(collectionIndex);
-  console.log("x: " + x);
+  var ideaIWant = ideaCollection[collectionIndex];
+  ideaIWant.deleteFromStorage(collectionIndex);
+
+  // ideaCollection[collectionIndex].deleteFromStorage(collectionIndex);
+
+  // var x = findAndRemoveCardData(cardId);
+  // x.deleteFromStorage(collectionIndex);
+  // console.log("x: " + x);
 }
 
 
