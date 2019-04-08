@@ -8,8 +8,8 @@ var bodyInput = document.querySelector(".creator__form--body--input");
 var saveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
 var cardTable = document.querySelector(".ideas");
-var editTitle = document.querySelector(".cards__middle--title");
 var deleteButton = document.querySelector(".cards__top--right");
+var editTitle = document.querySelector(".cards__middle--title");
 var editBody = document.querySelector(".cards__middle--text");
 var prompt = document.querySelector(".card__ideaprompt");
 var ideaCollection;
@@ -22,6 +22,8 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
+
+cardTable.addEventListener('input', editCardBody);
 
 // editTitle.addEventListener('click', );
 // editBody.addEventListener('click', );
@@ -71,8 +73,8 @@ function displayIdeas(ideaInstance) {
           <img class="cards__top--right" src="images/delete.svg">
         </section>
         <section class="cards__middle card--section">
-          <h3 class="cards__middle--title">${ideaInstance.title}</h3>
-          <p class="cards__middle--text">${ideaInstance.body}</p>
+          <h3 class="cards__middle--title" contenteditable="true">${ideaInstance.title}</h3>
+          <p class="cards__middle--text" contenteditable="true">${ideaInstance.body}</p>
         </section>
         <section class="cards__bottom card--section">
           <img class="cards__bottom--left" src="images/upvote.svg">
@@ -141,22 +143,29 @@ function findAndRemoveCardData(cardId) {
   });
   var ideaIWant = ideaCollection[collectionIndex];
   ideaIWant.deleteFromStorage(collectionIndex);
-
-  // ideaCollection[collectionIndex].deleteFromStorage(collectionIndex);
-
-  // var x = findAndRemoveCardData(cardId);
-  // x.deleteFromStorage(collectionIndex);
-  // console.log("x: " + x);
 }
 
 
 
 
-/*
 
-another function: actually does the deletion from array
-another variable that will splice the card (via its index)
 
-finally, resend new array to local storage with saveToStorage()
+function editCardBody() {
+  var edit = editBody;
+  findCardId2(edit);
+}
 
-*/
+function findCardId2(card) {
+  var cardId = card.dataset.id;
+  console.log("cardId: " + cardId);
+  editCardData(cardId);
+}
+
+function editCardData(cardId) {
+  var collectionIndex = ideaCollection.findIndex(function(item) {
+    // console.log("collection index: " + collectionIndex);
+    return item.id == cardId;
+  });
+  var ideaIWant = ideaCollection[collectionIndex];
+  ideaIWant.saveToStorage(collectionIndex);
+}
