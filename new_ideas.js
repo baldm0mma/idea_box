@@ -15,7 +15,7 @@ class Idea {
 
   deleteFromStorage(collectionIndex) {
     ideaCollection.splice(collectionIndex, 1);
-    this.saveToStorage(ideaCollection);
+    this.saveToStorage(ideaCollection); 
   }
 
   updateIdea() {
