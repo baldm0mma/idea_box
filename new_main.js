@@ -9,6 +9,7 @@ var saveButton = document.querySelector(".creator__form--button");
 var searchBox = document.querySelector(".creator__search");
 var cardTable = document.querySelector(".ideas");
 var editTitle = document.querySelector(".cards__middle--title");
+var deleteButton = document.querySelector(".cards__top--right");
 var editBody = document.querySelector(".cards__middle--text");
 var prompt = document.querySelector(".card__ideaprompt");
 var ideaCollection;
@@ -20,6 +21,7 @@ window.addEventListener('load', loadPage);
 titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
+cardTable.addEventListener('click', deleteDisplayedCards);
 
 // editTitle.addEventListener('click', );
 // editBody.addEventListener('click', );
@@ -55,6 +57,12 @@ function hidePrompt() {
   }
 }
 
+// function showPrompt() {
+//   if (ideaCollection.length > 0) {
+//     prompt.classList.remove("hidden");
+//   }
+// }
+
 function displayIdeas(ideaInstance) {
   var ideaCard = `
     <div class="card" data-id="${ideaInstance.id}">
@@ -87,7 +95,6 @@ function instantiateIdea() {
   ideaCollection.push(ideaInstance);
   ideaInstance.saveToStorage(ideaCollection);
   displayIdeas(ideaInstance);
-
 }
 
 function clearCreatorInputs() {
@@ -112,3 +119,39 @@ function restoreCards(ideaCollection) {
   });
 }
 
+function deleteDisplayedCards(e) {
+  if (e.target.className === "cards__top--right") {
+   var card = e.target.closest('.card');
+   console.log("card: " + card);
+   card.remove();
+   findCardId(card);
+  }
+}
+
+function findCardId(card) {
+  var cardId = card.dataset.id;
+  console.log("cardId: " + cardId);
+  findAndRemoveCardData(cardId);
+}
+
+function findAndRemoveCardData(cardId) {
+  var collectionIndex = ideaCollection.findIndex(function(item) {
+    // console.log("collection index: " + collectionIndex);
+    return item.id == cardId;
+  });
+  var x = findAndRemoveCardData(cardId);
+  x.deleteFromStorage(collectionIndex);
+  console.log("x: " + x);
+}
+
+
+
+
+/*
+
+another function: actually does the deletion from array
+another variable that will splice the card (via its index)
+
+finally, resend new array to local storage with saveToStorage()
+
+*/
