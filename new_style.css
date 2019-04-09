@@ -24,12 +24,27 @@ body {
 
 .sidebar__border {
   border-left: 10px solid #1F1F3D;
+  margin-right: 20px;
   padding-left: 10px;
 }
 
 .sidebar__child {
   display: flex;
   flex-direction: column;
+}
+
+.sidebar__header {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #353567;
+}
+
+.sidebar--button {
+  background-color: #5356a4;
+  color: #e9e9f3;
+  border-radius: 2px;
 }
 
 .item {
@@ -69,14 +84,22 @@ creator label,
 button,
 input {
   border: 1px solid #353567;
-  border-radius: 2px
+  border-radius: 2px;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.creator__form--button {
+  background-color: #1f1f3d;
+  color: #fff;
 }
 
 button,
 .creator__form--title--input,
 .creator__form--button,
 .sidebar__form2--input {
-  height: 38px;
+  height: 44px;
 }
 
 .creator__form--body--input {

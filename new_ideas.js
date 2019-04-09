@@ -26,4 +26,9 @@ class Idea {
 
   }
 
+  // static createFromJSON(string) {
+  //   let stuff = JSON.parse(string);
+
+  // }
+
 }
