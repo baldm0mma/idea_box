@@ -41,6 +41,10 @@ body {
   border-bottom: 2px solid #353567;
 }
 
+.sidebar__form2--quality {
+  margin: 10px 0;
+}
+
 .sidebar--button {
   background-color: #5356a4;
   color: #e9e9f3;
@@ -50,6 +54,7 @@ body {
 .item {
   border-left: 10px solid #1F1F3D;
   padding-left: 10px;
+  margin-top: 10px;
 }
 
 .item:hover {
@@ -90,6 +95,10 @@ input {
   font-weight: 600;
 }
 
+textarea {
+  resize: none;
+}
+
 .creator__form--button {
   background-color: #1f1f3d;
   color: #fff;
@@ -102,6 +111,10 @@ button,
   height: 44px;
 }
 
+.creator__form--title--input {
+  margin-top: 0;
+}
+
 .creator__form--body--input {
   height: 74px;
   text-overflow: wrap;
@@ -110,6 +123,7 @@ button,
 .creator__search {
   width: 50%;
   height: 38px;
+  margin-top: 0;
 }
 
 .ideas {
