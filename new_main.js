@@ -87,13 +87,10 @@ function displayIdeas(ideaInstance) {
 }
 
 function instantiateIdea() {
-  var id = Date.now();
-  var title = titleInput.value;
-  var body = bodyInput.value;
   var star = false;
   var qualityList = ['Swill', 'Plausible', 'Genius'];
   var quality = qualityList[0];
-  var ideaInstance = new Idea(id, title, body, star, quality);
+  var ideaInstance = new Idea(Date.now(), titleInput.value, bodyInput.value, star, quality);
   ideaCollection.push(ideaInstance);
   ideaInstance.saveToStorage(ideaCollection);
   displayIdeas(ideaInstance);
