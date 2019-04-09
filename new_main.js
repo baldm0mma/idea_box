@@ -22,6 +22,7 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
+cardTable.addEventListener('mousedown', changeDeleteButton);
 
 // cardTable.addEventListener('input', editCardBody);
 
@@ -148,16 +149,25 @@ function findAndRemoveCardData(cardId) {
 
 
 
-// function deleteDisplayedCards(e) {
-//   if (e.target.className === "cards__top--right") {
-//    var card = e.target.closest('.card');
-//    console.log("card: " + card);
-//    card.remove();
-//    findCardId(card);
-//    let ideaIndex = findIdeaIndex(card);
-//    removeCardData(ideaIndex);
-//   }
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+function changeDeleteButton(e) {
+  var x = document.querySelector(".cards__top--right");
+  x.setAttribute('src', 'images/delete-active.svg');
+  //  findCardId(card);
+  //  let ideaIndex = findIdeaIndex(card);
+  //  removeCardData(ideaIndex);
+}
 
 // function findCardId(card) {
 //   var cardId = card.dataset.id;
