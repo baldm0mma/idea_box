@@ -185,6 +185,16 @@ button,
   box-sizing: border-box;
 }
 
+.cards__top--right {
+  width: 15%;
+  background: url("images/delete.svg") no-repeat;
+}
+ 
+ .cards__top--right:hover {
+  width: 15%;
+  background: url("images/delete-active.svg") no-repeat;
+}
+
 .cards__middle {
   display: flex;
   flex-direction: column;
