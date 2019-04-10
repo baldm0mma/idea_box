@@ -15,11 +15,19 @@ class Idea {
 
   deleteFromStorage(collectionIndex) {
     ideaCollection.splice(collectionIndex, 1);
-    this.saveToStorage(ideaCollection); 
+    this.saveToStorage(); 
+  }
+
+  updateBody(newBody) {
+    this.body = newBody;
+  }
+
+  updateTitle(newTitle) {
+    this.title = newTitle;
   }
 
   updateIdea() {
-    this.star = !this.star;
+    this.saveToStorage();
   }
 
   updateQuality() {
