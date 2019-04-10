@@ -69,7 +69,7 @@ function displayIdeas(ideaInstance) {
     <div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
           <img class="cards__top--left" src="images/star.svg">
-          <img class="cards__top--right" src="images/delete.svg" onclick="this.src='images/delete-active.svg'">
+          <img class="cards__top--right" src="images/delete.svg">
         </section>
         <section class="cards__middle card--section">
           <h3 class="cards__middle--title" contenteditable="true">${ideaInstance.title}</h3>
