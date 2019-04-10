@@ -195,6 +195,21 @@ button,
   background: url("images/delete-active.svg") no-repeat;
 }
 
+.cards__top--left {
+  width: 15%;
+  background: url("images/star.svg") no-repeat;
+}
+ 
+ .cards__top--left:hover {
+  width: 15%;
+  background: url("images/star-active.svg") no-repeat;
+}
+
+.cards__top--left.star {
+  width: 15%;
+  background: url("images/star-active.svg") no-repeat;
+}
+
 .cards__middle {
   display: flex;
   flex-direction: column;
@@ -219,6 +234,7 @@ button,
 }
 
 img {
+  height: 100%;
   width: 15%;
 }
 
@@ -234,7 +250,7 @@ img {
 .cards__bottom--text {
   color: white;
   font-weight: 700;
-  line-height: 38px;
+  align-self: center;
 }
 
 /* ------------------*/
