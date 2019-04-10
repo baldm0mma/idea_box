@@ -22,12 +22,8 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
-// cardTable.addEventListener('mousedown', changeDeleteButton, true);
 
 cardTable.addEventListener('input', editCardBody);
-
-// editTitle.addEventListener('click', );
-// editBody.addEventListener('click', );
 
 // Add Functions 
 
