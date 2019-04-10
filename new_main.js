@@ -24,7 +24,7 @@ saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
 cardTable.addEventListener('mousedown', changeDeleteButton);
 
-// cardTable.addEventListener('input', editCardBody);
+cardTable.addEventListener('input', editCardBody);
 
 // editTitle.addEventListener('click', );
 // editBody.addEventListener('click', );
@@ -60,18 +60,16 @@ function hidePrompt() {
   }
 }
 
-// function showPrompt() {
-//   if (ideaCollection.length > 0) {
-//     prompt.classList.remove("hidden");
-//   }
-// }
+function showPrompt() {
+    prompt.classList.remove("hidden");
+}
 
 function displayIdeas(ideaInstance) {
   var ideaCard = `
     <div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
           <img class="cards__top--left" src="images/star.svg">
-          <img class="cards__top--right" src="images/delete.svg">
+          <img class="cards__top--right" src="images/delete.svg" onclick="this.src='images/delete-active.svg'">
         </section>
         <section class="cards__middle card--section">
           <h3 class="cards__middle--title" contenteditable="true">${ideaInstance.title}</h3>
@@ -122,103 +120,51 @@ function restoreCards(ideaCollection) {
 function deleteDisplayedCards(e) {
   if (e.target.className === "cards__top--right") {
    var card = e.target.closest('.card');
-   console.log("card: " + card);
-   card.remove();
-   findCardId(card);
+    card.remove(); 
+    var index = findCardIndex(card);
+    removeCardData(index);
+    if (document.querySelectorAll('.card').length === 0) {
+      showPrompt();
+    }
   }
 }
 
-function findCardId(card) {
+function findCardIndex(card) {
   var cardId = card.dataset.id;
-  // console.log("cardId: " + cardId);
-  findAndRemoveCardData(cardId);
-}
-
-function findAndRemoveCardData(cardId) {
-  var collectionIndex = ideaCollection.findIndex(function(item) {
-    // console.log("collection index: " + collectionIndex);
+  return ideaCollection.findIndex(function(item) {
     return item.id == cardId;
   });
-  var ideaIWant = ideaCollection[collectionIndex];
-  ideaIWant.deleteFromStorage(collectionIndex);
 }
 
-
-// ----------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function removeCardData(index) {
+  var ideaIWanttoDelete = ideaCollection[index];
+  ideaIWanttoDelete.deleteFromStorage(index);
+}
 
 
 function changeDeleteButton(e) {
-  var x = document.querySelector(".cards__top--right");
-  x.setAttribute('src', 'images/delete-active.svg');
-  //  findCardId(card);
-  //  let ideaIndex = findIdeaIndex(card);
-  //  removeCardData(ideaIndex);
+  if (ideaCollection.length > 0) {
+    var x = document.querySelector(".cards__top--right");
+    x.setAttribute('src', 'images/delete-active.svg');
+  } else {
+    return;
+  }
 }
 
-// function findCardId(card) {
-//   var cardId = card.dataset.id;
-//   // console.log("cardId: " + cardId);
-//   findAndRemoveCardData(cardId);
-// }
+function editCardBody(e) {
+  var card = e.target.closest('.card');
+  if (e.target.className === 'cards__middle--text') {
+    var bodyText = e.target.innerText;
+    var index = findCardIndex(card);
+    ideaCollection[index].updateBody(bodyText);
+    ideaCollection[index].updateIdea();
+  }
+  if (e.target.className === 'cards__middle--title') {
+    var titleText = e.target.innerText;
+    var index = findCardIndex(card);
+    ideaCollection[index].updateTitle(titleText);
+    ideaCollection[index].updateIdea();
+  }
+}
 
-// function findAndRemoveCardData(cardId) {
-//   var collectionIndex = ideaCollection.findIndex(function(item) {
-//     // console.log("collection index: " + collectionIndex);
-//     return item.id == cardId;
-//   });
-//   var ideaIWant = ideaCollection[collectionIndex];
-//   ideaIWant.deleteFromStorage(collectionIndex);
-// }
-
-
-// function findIdeaIndex(card) {
-//   var cardId = card.dataset.id;
-//   // console.log("cardId: " + cardId);
-//   return ideaCollection.findIndex(function(item) {
-//     // console.log("collection index: " + collectionIndex);
-//     return item.id == cardId;
-//   });
-//   findAndRemoveCardData(cardId);
-// }
-
-// function removeCardData(cardId) {
-//   var ideaIWant = ideaCollection[collectionIndex];
-//   ideaIWant.deleteFromStorage(collectionIndex);
-// }
-
-
-
-
-// function editCardBody() {
-//   var edit = editBody;
-//   findCardId2(edit);
-// }
-
-// function findCardId2(card) {
-//   var cardId = card.dataset.id;
-//   console.log("cardId: " + cardId);
-//   editCardData(cardId);
-// }
-
-// function editCardData(cardId) {
-//   var collectionIndex = ideaCollection.findIndex(function(item) {
-//     // console.log("collection index: " + collectionIndex);
-//     return item.id == cardId;
-//   });
-//   var ideaIWant = ideaCollection[collectionIndex];
-//   ideaIWant.saveToStorage(collectionIndex);
-// }
+// ----------------------------------
