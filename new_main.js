@@ -22,7 +22,7 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
-
+cardTable.addEventListener('click', editStar);
 cardTable.addEventListener('input', editCardBody);
 
 // Add Functions 
@@ -64,7 +64,7 @@ function displayIdeas(ideaInstance) {
   var ideaCard = `
     <div class="card" data-id="${ideaInstance.id}">
         <section class="cards__top card--section">
-          <img class="cards__top--left" src="images/star.svg">
+          <div class="cards__top--left" alt="star-rating"></div>
           <div class="cards__top--right" alt="delete-X"></div>
         </section>
         <section class="cards__middle card--section">
@@ -150,6 +150,20 @@ function editCardBody(e) {
     var index = findCardIndex(card);
     ideaCollection[index].updateTitle(titleText);
     ideaCollection[index].updateIdea();
+  }
+}
+
+function editStar(e) {
+  var card = e.target.closest('.card');
+  if (e.target.className === 'cards__top--left') {
+    var index = findCardIndex(card);
+    ideaCollection[index].updateStar();
+    ideaCollection[index].updateIdea();
+    if (e.target.className.contains('star')) {
+      e.target.className.remove('star');
+    } else {
+      e.target.className.add('star');
+    }
   }
 }
 

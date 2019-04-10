@@ -26,6 +26,10 @@ class Idea {
     this.title = newTitle;
   }
 
+  updateStar(newStar) {
+    this.star = !this.star;
+  }
+
   updateIdea() {
     this.saveToStorage();
   }
