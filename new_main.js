@@ -22,7 +22,7 @@ titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
-cardTable.addEventListener('mousedown', changeDeleteButton);
+cardTable.addEventListener('mousedown', changeDeleteButton, true);
 
 cardTable.addEventListener('input', editCardBody);
 
@@ -144,10 +144,12 @@ function removeCardData(index) {
 
 function changeDeleteButton(e) {
   if (ideaCollection.length > 0) {
-    var x = document.querySelector(".cards__top--right");
-    x.setAttribute('src', 'images/delete-active.svg');
-  } else {
-    return;
+    if (e.target.className === 'card') {
+      var deleteActive = e.target.closest('.cards__top--right');
+      deleteActive.setAttribute('src', 'images/delete-active.svg');
+    } else {
+      return;
+    }
   }
 }
 
