@@ -147,6 +147,7 @@ button,
 
 .creator__form--body--input {
   height: 74px;
+  font-size: 20px;
   text-overflow: wrap;
 }
 
@@ -231,6 +232,13 @@ img {
 .card__ideaprompt {
   font-size: 48px;
   color: #5356A4;
+  display: grid;
+  grid-area: cards;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .card__ideaprompt.hidden {
