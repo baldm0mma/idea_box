@@ -1,5 +1,3 @@
-// Add Global Variables
-
 var form1Button = document.querySelector(".sidebar__form1--button");
 var form2Input = document.querySelector(".sidebar__form2--input");
 var form2Button = document.querySelector(".sidebar__form2--button");
@@ -14,18 +12,14 @@ var editBody = document.querySelector(".cards__middle--text");
 var prompt = document.querySelector(".card__ideaprompt");
 var ideaCollection;
 
-// Add Event Listeners
-
 window.addEventListener('load', loadPage);
-
 titleInput.addEventListener('keyup', enableSaveButton);
 bodyInput.addEventListener('keyup', enableSaveButton);
 saveButton.addEventListener('click', saveButtonActions);
 cardTable.addEventListener('click', deleteDisplayedCards);
 cardTable.addEventListener('click', editStar);
 cardTable.addEventListener('input', editCardBody);
-
-// Add Functions 
+cardTable.addEventListener("keydown", enterToBlur);
 
 function loadPage() {
   saveButton.disabled = true;
@@ -57,7 +51,7 @@ function hidePrompt() {
 }
 
 function showPrompt() {
-    prompt.classList.remove("hidden");
+  prompt.classList.remove("hidden");
 }
 
 function displayIdeas(ideaInstance) {
@@ -68,8 +62,8 @@ function displayIdeas(ideaInstance) {
           <div class="cards__top--right" alt="delete-X"></div>
         </section>
         <section class="cards__middle card--section">
-          <h3 class="cards__middle--title" contenteditable="true">${ideaInstance.title}</h3>
-          <p class="cards__middle--text" contenteditable="true">${ideaInstance.body}</p>
+          <h3 class="cards__middle--title" id="editable-title" contenteditable="true">${ideaInstance.title}</h3>
+          <p class="cards__middle--text" id="editable-body" contenteditable="true">${ideaInstance.body}</p>
         </section>
         <section class="cards__bottom card--section">
           <img class="cards__bottom--left" src="images/upvote.svg">
@@ -167,4 +161,13 @@ function editStar(e) {
   }
 }
 
-// ----------------------------------
+function enterToBlur(e) {
+  if (e.keyCode === 13) {
+    var toBlur = document.getElementById('editable-title');
+    toBlur.blur();
+  }
+  if (e.keyCode === 13) {
+    var toBlur = document.getElementById('editable-body');
+    toBlur.blur();
+  }
+}
