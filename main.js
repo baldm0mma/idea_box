@@ -1,14 +1,8 @@
-var form1Button = document.querySelector(".sidebar__form1--button");
-var form2Input = document.querySelector(".sidebar__form2--input");
-var form2Button = document.querySelector(".sidebar__form2--button");
 var titleInput = document.querySelector(".creator__form--title--input");
 var bodyInput = document.querySelector(".creator__form--body--input");
 var saveButton = document.querySelector(".creator__form--button");
-var searchBox = document.querySelector(".creator__search");
 var cardTable = document.querySelector(".ideas");
 var deleteButton = document.querySelector(".cards__top--right");
-var editTitle = document.querySelector(".cards__middle--title");
-var editBody = document.querySelector(".cards__middle--text");
 var prompt = document.querySelector(".card__ideaprompt");
 var ideaCollection;
 
@@ -153,10 +147,12 @@ function editStar(e) {
     var index = findCardIndex(card);
     ideaCollection[index].updateStar();
     ideaCollection[index].updateIdea();
-    if (e.target.className.contains('star')) {
-      e.target.className.remove('star');
-    } else {
-      e.target.className.add('star');
+    console.log(e.target);
+    if (e.target.classList.contains('star')) {
+      e.target.classList.remove('star');
+    }
+    if (e.target.classList !== 'star') {
+      e.target.classList.remove('star');
     }
   }
 }
