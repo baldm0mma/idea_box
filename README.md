@@ -24,13 +24,9 @@ Desktop version:
 
 ## Our results
 Desktop version:
-![image](https://github.com/CervAnn/number-guesser/blob/master/Screen%20Shot%202019-03-28%20at%208.54.06%20AM.png)
+![image](https://github.com/baldm0mma/idea_box/blob/master/Screen%20Shot%202019-04-10%20at%206.15.13%20PM.png)
 
 ![image](https://github.com/baldm0mma/idea_box/blob/master/Screen%20Shot%202019-04-10%20at%206.17.21%20PM.png)
-
-
-[GitHub Pages project page](https://kawilliams8.github.io/Number-Guesser/)
-
 
 ## Installation
 IdeaBox requires no installation.
