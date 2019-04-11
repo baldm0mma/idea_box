@@ -26,7 +26,7 @@ class Idea {
     this.title = newTitle;
   }
 
-  updateStar(newStar) {
+  updateStar() {
     this.star = !this.star;
   }
 
@@ -37,10 +37,4 @@ class Idea {
   updateQuality() {
 
   }
-
-  // static createFromJSON(string) {
-  //   let stuff = JSON.parse(string);
-
-  // } 
-
 }
