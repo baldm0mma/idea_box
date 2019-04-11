@@ -5,9 +5,9 @@ IdeaBox is the third major project in Mod 1 of the Front End Enginnering program
 
 ## Authors
 
-Katherine A Williams ([kawilliams8](https://github.com/kawilliams8])
-Jev A J Forsberg ([baldm0mma](https://github.com/baldm0mma])
-Ann Cerveny ([CervAnn](https://github.com/CervAnn])
+Katherine A Williams ([kawilliams8](https://github.com/kawilliams8]))
+Jev A J Forsberg ([baldm0mma](https://github.com/baldm0mma]))
+Ann Cerveny ([CervAnn](https://github.com/CervAnn]))
 
 ## Learning Goals
 
@@ -15,9 +15,9 @@ The IdeaBox Redux project is designed to implement JavaScript principles taught 
 Student were also challenged to use a project management tool of choice, ours being Trello.
 
 
-## Comps
-Two comps were provided for students.
+# Comps
 
+## Provided Comp
 Desktop version:
 ![image](https://github.com/baldm0mma/idea_box/blob/master/Screen%20Shot%202019-04-10%20at%206.28.33%20PM.png)
 
