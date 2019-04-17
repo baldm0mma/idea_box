@@ -103,7 +103,7 @@ function restoreCards(ideaCollection) {
 
 function deleteDisplayedCards(e) {
   if (e.target.className === "cards__top--right") {
-   var card = e.target.closest('.card');
+    var card = e.target.closest('.card');
     card.remove(); 
     var index = findCardIndex(card);
     removeCardData(index);
